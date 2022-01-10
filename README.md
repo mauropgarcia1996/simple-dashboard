@@ -10,6 +10,11 @@ This application was made with the following purposes:
 
 
 
+## Demo
+
+https://simple-dashboard.vercel.app/
+
+
 ## Run Locally
 
 Clone the project
