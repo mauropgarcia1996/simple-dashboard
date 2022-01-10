@@ -30,6 +30,10 @@ const Users: NextPage = ({ data }: any) => {
   const [loading, setLoading] = useState(false);
   const notifications = useNotifications();
 
+  /**
+   * Method that handles the filters changes
+   * @param e FormEvent Event with the value
+   */
   const handleFilterChange = (e: any) => {
     setLoading(true);
     setTimeout(() => {
@@ -41,6 +45,10 @@ const Users: NextPage = ({ data }: any) => {
     }, 3000);
   };
 
+  /**
+   * Method that renders the filters components
+   * @returns <tr></tr>
+   */
   const renderFilters = () => {
     return (
       <tr>
@@ -60,6 +68,7 @@ const Users: NextPage = ({ data }: any) => {
       </tr>
     );
   };
+  
   return (
     <div style={{ paddingInline: 10 }}>
       <Card shadow="lg" withBorder>
