@@ -19,7 +19,7 @@ const COLUMNS = [
 const Posts: NextPage = ({ data }: any) => {
   return (
     <div style={{ paddingInline: 10 }}>
-      <Title style={{ marginBottom: 25 }}>Posts</Title>
+      <Title data-testid="posts-title" style={{ marginBottom: 25 }}>Posts</Title>
       <Card shadow="lg" withBorder>
         <SimpleTable columns={COLUMNS}>
           {data.map((e: Post) => (

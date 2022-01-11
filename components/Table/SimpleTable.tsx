@@ -20,7 +20,7 @@ interface TableProps {
  */
 const SimpleTable = ({ columns, filters, children }: TableProps) => {
   return (
-    <Table striped highlightOnHover>
+    <Table data-testid="table" striped highlightOnHover>
       <thead>
         <tr>
           {columns.map((e) => (

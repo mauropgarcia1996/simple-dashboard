@@ -5,11 +5,11 @@ const Home: NextPage = ({ data }: any) => {
   return (
     <div>
       <Group direction="column">
-        <Title>Home</Title>
-        <Text>
+        <Title data-testid="home-title">Home</Title>
+        <Text data-testid="home-description">
           This is a simple dashboard created to test some technologies.
         </Text>
-        <List withPadding spacing="lg">
+        <List data-testid="home-list" withPadding spacing="lg">
           <ListItem>Mantine.dev</ListItem>
           <ListItem>Next.js & Typescript</ListItem>
           <ListItem>Internationalization</ListItem>

@@ -71,7 +71,7 @@ const Users: NextPage = ({ data }: any) => {
 
   return (
     <div style={{ paddingInline: 10 }}>
-      <Title style={{ marginBottom: 25 }}>Users</Title>
+      <Title data-testid="users-title" style={{ marginBottom: 25 }}>Users</Title>
       <Card shadow="lg" withBorder>
         <SimpleTable columns={COLUMNS} filters={renderFilters()}>
           {!loading &&

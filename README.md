@@ -33,12 +33,19 @@ Install dependencies
 
 ```bash
   npm install
+  npx playwright install
 ```
 
 Start the server
 
 ```bash
   npm run dev
+```
+
+Run Tests
+
+```bash
+  npm run test
 ```
 
 
