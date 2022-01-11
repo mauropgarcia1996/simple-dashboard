@@ -1,4 +1,4 @@
-import { Card, Skeleton, TextInput } from "@mantine/core";
+import { Card, Skeleton, TextInput, Title } from "@mantine/core";
 import type { NextPage } from "next";
 import { GetServerSideProps } from "next";
 import { useState } from "react";
@@ -68,9 +68,10 @@ const Users: NextPage = ({ data }: any) => {
       </tr>
     );
   };
-  
+
   return (
     <div style={{ paddingInline: 10 }}>
+      <Title style={{ marginBottom: 25 }}>Users</Title>
       <Card shadow="lg" withBorder>
         <SimpleTable columns={COLUMNS} filters={renderFilters()}>
           {!loading &&

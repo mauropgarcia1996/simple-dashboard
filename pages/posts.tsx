@@ -1,4 +1,4 @@
-import { Card, Table } from "@mantine/core";
+import { Card, Table, Title } from "@mantine/core";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import { Post } from "../commons/interfaces";
@@ -19,6 +19,7 @@ const COLUMNS = [
 const Posts: NextPage = ({ data }: any) => {
   return (
     <div style={{ paddingInline: 10 }}>
+      <Title style={{ marginBottom: 25 }}>Posts</Title>
       <Card shadow="lg" withBorder>
         <SimpleTable columns={COLUMNS}>
           {data.map((e: Post) => (

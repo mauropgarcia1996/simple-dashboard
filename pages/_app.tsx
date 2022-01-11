@@ -9,6 +9,7 @@ import { NotificationsProvider } from "@mantine/notifications";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { useState } from "react";
+import MainHeader from "../components/MainHeader/MainHeader";
 import MainNavbar from "../components/MainNavbar/MainNavbar";
 import "../styles/globals.css";
 
@@ -88,7 +89,7 @@ export default function App(props: AppProps) {
                       />
                     </MediaQuery>
 
-                    <Text>Application header</Text>
+                    <MainHeader />
                   </div>
                 </Header>
               }

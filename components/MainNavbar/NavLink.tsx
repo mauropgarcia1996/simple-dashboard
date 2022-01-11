@@ -1,4 +1,4 @@
-import { Box, Group, Text } from "@mantine/core";
+import { Box, Group, Text, ThemeIcon } from "@mantine/core";
 import Link from "next/link";
 import { Route } from "../../commons/interfaces";
 
@@ -15,26 +15,17 @@ const NavLink = ({ link }: NavLink) => {
           sx={(theme) => ({
             width: "100%",
             padding: theme.spacing.sm,
+            borderRadius: theme.radius.md,
             cursor: "pointer",
             "&:hover": {
-              backgroundColor: theme.colors.gray[0],
+              backgroundColor: theme.colorScheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[0],
             },
           })}
         >
           <Group>
-            <Box
-              sx={(theme) => ({
-                backgroundColor: theme.colors.blue[1],
-                borderRadius: theme.radius.sm,
-                width: 24,
-                height: 24,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              })}
-            >
-              <i className={link.icon} style={{ color: "#0D7FF7" }}></i>
-            </Box>
+            <ThemeIcon>
+              <i className={link.icon}></i>
+            </ThemeIcon>
             <Text weight={500} size="lg">
               {link.label}
             </Text>
