@@ -6,29 +6,30 @@ import { getUsers } from "../utils/api";
 import { User } from "../commons/interfaces";
 import SimpleTable from "../components/Table/SimpleTable";
 import { useNotifications } from "@mantine/notifications";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { withTranslation } from "next-i18next";
 
-const COLUMNS = [
-  {
-    title: "Name",
-    filter: true,
-  },
-  {
-    title: "Username",
-    filter: false,
-  },
-  {
-    title: "Address",
-    filter: false,
-  },
-  {
-    title: "Company",
-    filter: true,
-  },
-];
-
-const Users: NextPage = ({ data }: any) => {
+const Users: NextPage = ({ t, data }: any) => {
   const [loading, setLoading] = useState(false);
   const notifications = useNotifications();
+  const COLUMNS = [
+    {
+      title: t('users.table_name_label'),
+      filter: true,
+    },
+    {
+      title: t('users.table_username_label'),
+      filter: false,
+    },
+    {
+      title: t('users.table_address_label'),
+      filter: false,
+    },
+    {
+      title: t('users.table_company_label'),
+      filter: true,
+    },
+  ];
 
   /**
    * Method that handles the filters changes
@@ -71,7 +72,9 @@ const Users: NextPage = ({ data }: any) => {
 
   return (
     <div style={{ paddingInline: 10 }}>
-      <Title data-testid="users-title" style={{ marginBottom: 25 }}>Users</Title>
+      <Title data-testid="users-title" style={{ marginBottom: 25 }}>
+        {t('users.title')}
+      </Title>
       <Card shadow="lg" withBorder>
         <SimpleTable columns={COLUMNS} filters={renderFilters()}>
           {!loading &&
@@ -96,15 +99,16 @@ const Users: NextPage = ({ data }: any) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const res = await getUsers();
   const data = await res.json();
 
   return {
     props: {
+      ...(await serverSideTranslations(locale as string, ["common"])),
       data: data ? data : [],
     },
   };
 };
 
-export default Users;
+export default withTranslation()(Users);

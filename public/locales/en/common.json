@@ -1,0 +1,18 @@
+{
+    "index": {
+        "title": "Home",
+        "description": " This is a simple dashboard created to test some technologies."
+    },
+    "posts": {
+        "title": "Posts",
+        "table_title_label": "Title",
+        "table_body_label": "Body"
+    },
+    "users": {
+        "title": "Users",
+        "table_name_label": "Name",
+        "table_username_label": "Username",
+        "table_address_label": "Address",
+        "table_company_label": "Company"
+    }
+}

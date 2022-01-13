@@ -4,22 +4,25 @@ import { GetStaticProps } from "next";
 import { Post } from "../commons/interfaces";
 import { getPosts } from "../utils/api";
 import SimpleTable from "../components/Table/SimpleTable";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { withTranslation } from "next-i18next";
 
-const COLUMNS = [
-  {
-    title: "Title",
-    filter: false,
-  },
-  {
-    title: "Body",
-    filter: false,
-  },
-];
-
-const Posts: NextPage = ({ data }: any) => {
+const Posts: NextPage = ({ t, data }: any) => {
+  const COLUMNS = [
+    {
+      title: t('posts.table_title_label'),
+      filter: false,
+    },
+    {
+      title: t('posts.table_body_label'),
+      filter: false,
+    },
+  ];
   return (
     <div style={{ paddingInline: 10 }}>
-      <Title data-testid="posts-title" style={{ marginBottom: 25 }}>Posts</Title>
+      <Title data-testid="posts-title" style={{ marginBottom: 25 }}>
+        {t('posts.title')}
+      </Title>
       <Card shadow="lg" withBorder>
         <SimpleTable columns={COLUMNS}>
           {data.map((e: Post) => (
@@ -34,13 +37,16 @@ const Posts: NextPage = ({ data }: any) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const res = await getPosts();
   const data = await res.json();
 
   return {
-    props: { data },
+    props: {
+      ...(await serverSideTranslations(locale as string, ["common"])),
+      data,
+    },
   };
 };
 
-export default Posts;
+export default withTranslation()(Posts);

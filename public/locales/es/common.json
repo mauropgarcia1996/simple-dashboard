@@ -1,0 +1,18 @@
+{
+    "index": {
+        "title": "Principal",
+        "description": "Esto es un panel simple creado con el objetivo de probar algunas tecnologias."
+    },
+    "posts": {
+        "title": "Posteos",
+        "table_title_label": "Titulo",
+        "table_body_label": "Cuerpo"
+    },
+    "users": {
+        "title": "Usuarios",
+        "table_name_label": "Nombre",
+        "table_username_label": "Nombre de Usuario",
+        "table_address_label": "Direccion",
+        "table_company_label": "Compañia"
+    }
+}

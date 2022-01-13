@@ -1,4 +1,5 @@
 import { Box, Group, Text, ThemeIcon } from "@mantine/core";
+import { withTranslation } from "next-i18next";
 import Link from "next/link";
 import { Route } from "../../commons/interfaces";
 
@@ -7,7 +8,7 @@ import { Route } from "../../commons/interfaces";
  * @param link NavLink link with the route
  * @returns <NavLink link />
  */
-const NavLink = ({ link }: NavLink) => {
+const NavLink = ({ t, link }: NavLink) => {
   return (
     <>
       <Link href={link.path} passHref>
@@ -27,7 +28,7 @@ const NavLink = ({ link }: NavLink) => {
               <i className={link.icon}></i>
             </ThemeIcon>
             <Text weight={500} size="lg">
-              {link.label}
+              {t(link.label)}
             </Text>
           </Group>
         </Box>
@@ -38,6 +39,7 @@ const NavLink = ({ link }: NavLink) => {
 
 interface NavLink {
   link: Route;
+  t: any
 }
 
-export default NavLink;
+export default withTranslation()(NavLink);

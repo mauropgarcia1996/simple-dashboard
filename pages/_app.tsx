@@ -12,8 +12,9 @@ import { useState } from "react";
 import MainHeader from "../components/MainHeader/MainHeader";
 import MainNavbar from "../components/MainNavbar/MainNavbar";
 import "../styles/globals.css";
+import { appWithTranslation } from "next-i18next";
 
-export default function App(props: AppProps) {
+function App(props: AppProps) {
   const { Component, pageProps } = props;
   const [opened, setOpened] = useState(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
@@ -102,3 +103,5 @@ export default function App(props: AppProps) {
     </>
   );
 }
+
+export default appWithTranslation(App)

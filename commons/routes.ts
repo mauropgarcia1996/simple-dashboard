@@ -3,17 +3,17 @@ import { Route } from "./interfaces";
 export const ROUTES: Route[] = [
     {
         path: "/",
-        label: "Home",
+        label: "index.title",
         icon: "bx bxs-home"
     },
     {
         path: "/users",
-        label: "Users",
+        label: "users.title",
         icon: "bx bxs-user-account"
     },
     {
         path: "/posts",
-        label: "Posts",
+        label: "posts.title",
         icon: "bx bxs-data"
     }
 ]
